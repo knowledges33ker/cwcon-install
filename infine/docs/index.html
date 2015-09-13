@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Realia - Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Aviators - byaviators.com">
+    <style>
+        pre {
+            font-size: 10px !important;
+        }
+
+        .com {
+            color: #93a1a1;
+        }
+
+        .lit {
+            color: #195f91;
+        }
+
+        .pun, .opn, .clo {
+            color: #93a1a1;
+        }
+
+        .fun {
+            color: #dc322f;
+        }
+
+        .str, .atv {
+            color: #D14;
+        }
+
+        .kwd, .prettyprint .tag {
+            color: #1e347b;
+        }
+
+        .typ, .atn, .dec, .var {
+            color: teal;
+        }
+
+        .pln {
+            color: #48484c;
+        }
+
+        .prettyprint {
+            padding: 8px;
+            background-color: #f7f7f9;
+            border: 1px solid #e1e1e8;
+        }
+
+        .prettyprint.linenums {
+            -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+            -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+            box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+        }
+
+            /* Specify class=linenums on a pre to get line numbering */
+        ol.linenums {
+            margin: 0 0 0 33px; /* IE indents via margin-left */
+        }
+
+        ol.linenums li {
+            padding-left: 12px;
+            color: #bebec5;
+            line-height: 20px;
+            text-shadow: 0 1px 0 #fff;
+        }
+    </style>
+
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/doc.js"></script>
+</head>
+
+<body>
+<div class="container">
+<div class="page-header">
+    <h1>Documentation - Infine, Drupal</h1>
+</div>
+<!-- /.page-header -->
+<div class="row">
+<div class="sidebar span4">
+    <ul class="nav nav-tabs nav-stacked affix" style="margin-top: 20px; width: 300px;">
+        <li><a href="#system-requirements">System Requirements</a></li>
+        <li><a href="#installation-instructions">Installation Instructions</a></li>
+        <li><a href="#module-requirements">General Settings</a></li>
+        <li><a href="#content-management">Content management</a></li>
+        <li><a href="#slider-management">Slider management</a></li>
+        <li><a href="#onepage-management">Onepage management</a></li>
+    </ul>
+</div>
+<!-- /.sidebar -->
+
+<div class="content span8">
+
+<section id="system-requirements">
+    <div class="page-header">
+        <h2>System requirements</h2>
+    </div>
+    <!-- /.page-header -->
+
+    If you're planning to build a website using Drupal, you must first ensure your hosting provider meets
+    Drupal's
+    requirements.
+
+    <strong>Database</strong>
+    <ul>
+        <li>SQL 5.0.15 or higher with PDO</li>
+        <li>PostgreSQL 8.3 or higher with PDO</li>
+        <li>SQLite 3.3.7 or higher</li>
+    </ul>
+
+    <strong>PHP</strong>
+    <ul>
+        <li>PHP 5.2.5 or higher (5.3 recommended)</li>
+        <li>PHP5 GD library installed</li>
+        <li>Disabled error_reporting flag on production server</li>
+        <li>Enabled mod_rewrite in Apache for clean URLs</li>
+        <li>Memory limit set up at least 128MB</li>
+    </ul>
+</section>
+
+<section id="installation-instructions">
+    <div class="page-header">
+        <h2>Installation Instructions</h2>
+    </div>
+    <!-- /.page-header -->
+    <h3>Using demo content</h3>
+
+    <p>ZIP file which you downloaded from Themeforest is containing demo installation with all source codes
+        and content
+        including sample images. Note that the images are not same as on the preview server because of image
+        license.
+        Copy the demo folder from the downloaded file into the webroot and rename the directory. In the demo
+        directory
+        you can find database dump named database.sql. Connect to your database server and create database
+        and user.
+        Don't forget to add correct permissions to new user to access the database. After that you need to
+        modify
+        sites/default/settings.php file. You have to set correct database credentials. Locate the
+        <strong>$database</strong> array and set proper credentials. Now you can import the dump file. For
+        import you
+        can use SequelPro or PhpMyAdmin. Below you can see working example from
+        <strong>settings.php</strong>.</p>
+<pre><code>
+    $databases = array (
+    'default' =&gt;
+    array (
+    'default' =&gt;
+    array (
+    'database' =&gt; 'database_name',
+    'username' =&gt; 'database_user',
+    'password' =&gt; 'database_password',
+    'host' =&gt; '127.0.0.1',
+    'port' =&gt; '',
+    'driver' =&gt; 'mysql',
+    'prefix' =&gt; '',
+    ),
+    ),
+    );
+</code></pre>
+    <p>With this type of installation you need realize that you are installing everything from our preview
+        server
+        (instead of images) so don't forget to set proper values for settings as email address, admin
+        password, etc. Use
+        this installation if you want exact copy of our preview installation.&nbsp;
+
+    <p>
+
+    <p>
+        The login and password is <strong>admin</strong> and <strong>demo</strong>.
+    </p>
+
+</section>
+
+<section id="module-requirements">
+    <div class="page-header">
+        <h2>Module requirements</h2>
+    </div>
+    <h3>Our modules</h3>
+    <ul>
+        <li>Aviators Countdown</li>
+        <li>Aviators Pictopro</li>
+        <li>Aviators Revolution</li>
+        <li>Infine Utils</li>
+        <li>Infine Onepage</li>
+        <li>Realia Utils</li>
+    </ul>
+
+    <h3>Required modules</h3>
+    <ul>
+        <li>JQuery update</li>
+        <li>Ctools</li>
+        <li>Date</li>
+        <li>Entity</li>
+        <li>Libraries</li>
+        <li>Link</li>
+        <li>Menu Attributes</li>
+        <li>Menu Block</li>
+        <li>Simplenews</li>
+        <li>Quicktabs</li>
+        <li>Views</li>
+        <li>Views Slideshow</li>
+        <li>Webform</li>
+    </ul>
+
+    <h3>Optional modules</h3>
+    <ul>
+        <li>Metatags</li>
+        <li>Mediabox</li>
+        <li>Colorbox</li>
+    </ul>
+</section>
+<section id="content-management">
+<div class="page-header">
+<h2>Content Management</h2>
+
+<h3>
+    Content slide
+</h3>
+
+<p>
+    Content slide is simple piece of content presented in form of a slider. It holds image, title and some description
+    to event. Content slides are accumulated by "Content slider" view and resulting block is named "View: Content
+    slider".
+</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Title of content slide. This value is displayed trough "Content slider" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            Subtitle
+        </td>
+        <td>
+            Subtitle of content slide. This value is displayed trough "Content slider" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Body
+        </td>
+        <td>
+            Textarea
+        </td>
+        <td>
+            Body of content slide. This value is displayed trough "Content slider" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Image
+        </td>
+        <td>
+            Image
+        </td>
+        <td>
+            Picture representing slide picture. This value is displayed trough "Content slider" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Signature
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Signature for testimonial (example: "Social architect, Eduard Jones"). This value is displayed trough
+            "Testimonials" view.
+        </td>
+    </tr>
+    </tbody>
+</table>
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/slide.png" class="thumbnail">
+            <img src="images/slide.png">
+
+            <p style="text-align: center;">Content slide view</p>
+        </a>
+    </li>
+</ul>
+
+<h3>
+    Testimonials
+</h3>
+
+<p>
+    Testimonials are displayed trough "Testimonials" view, which is creating block with same name.
+</p>
+
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Title of testimonial. This value is <strong>not</strong> displayed on the site.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Body
+        </td>
+        <td>
+            Textarea
+        </td>
+        <td>
+            Body of testimonial. This value is displayed trough "Testimonials" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Picture
+        </td>
+        <td>
+            Image
+        </td>
+        <td>
+            Picture representing testimonial author. This value is displayed trough "Testimonials" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Signature
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Signature for testimonial (example: "Social architect, Eduard Jones"). This value is displayed trough
+            "Testimonials" view.
+        </td>
+    </tr>
+
+
+    </tbody>
+
+</table>
+
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/testimonials.png" class="thumbnail">
+            <img src="images/testimonials.png">
+
+            <p style="text-align: center;">Testimonials view</p>
+        </a>
+    </li>
+</ul>
+
+<h3>
+    Sponsor
+</h3>
+
+<p>
+    Simple content type representing sponsors trough linked image. Sponsors are displayed trough "Sponsors" view which
+    creates Block with equal name.
+</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Title of sponsor. This value is <strong>not</strong> displayed on the site.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Link
+        </td>
+        <td>
+            Link
+        </td>
+        <td>
+            Link to sponsor site. This field wraps content of "Image" field. This value is displayed trough "Sponsors"
+            view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Image
+        </td>
+        <td>
+            Image
+        </td>
+        <td>
+            Logo of sponsor. Wrapped in link provided by 'Link' field. This value is displayed trough "Sponsors" view.
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/sponsors.png" class="thumbnail">
+            <img src="images/sponsors.png">
+
+            <p style="text-align: center;">Sponsors view</p>
+        </a>
+    </li>
+</ul>
+
+<h3>
+    Gallery
+</h3>
+
+<p>
+    Gallery is bounded with place. Each gallery of images should represent a gallery of "place", which is defined with
+    taxonomy term.
+    Actual display of galleries is done trough view "Gallery".
+    Resulting block is called "Gallery".
+</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Title of gallery. This value is <strong>not</strong> displayed on the site.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Gallery
+        </td>
+        <td>
+            Image
+        </td>
+        <td>
+            Represents gallery images which are displayed trough colorbox integration. This value is displayed trough
+            "Gallery" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Place
+        </td>
+        <td>
+            Taxonomy term reference
+        </td>
+        <td>
+            Places are defined in taxonomy vocabulary 'Place'. This value is displayed trough "Gallery" view.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/gallery.png" class="thumbnail">
+            <img src="images/gallery.png">
+
+            <p style="text-align: center;">Gallery view</p>
+        </a>
+    </li>
+</ul>
+
+<h3>
+    Map
+</h3>
+
+<p>
+    Map basically equals to 'marker' displayed on a map. Actual map is created by view "Map". Each new content of type
+    "Map" creates new marker, according to latitude and longitude.
+    Resulting block is called "View: Map".
+</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            textfield
+        </td>
+        <td>
+            Title of map. This value is <strong>not</strong> displayed on the site.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Longitude
+        </td>
+        <td>
+            textfield
+        </td>
+        <td>
+            Longitude of map location (Can be claimed from google maps). This value is important to display marker
+            trough "Map" view;
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Latitude
+        </td>
+        <td>
+            textfield
+        </td>
+        <td>
+            Latitude of company location (Can be claimed from google maps). This value is important to display marker
+            trough "Map" view;
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/map.png" class="thumbnail">
+            <img src="images/map.png">
+
+            <p style="text-align: center;">Map view</p>
+        </a>
+    </li>
+</ul>
+
+<h3>
+    Features
+</h3>
+
+<p>
+    Node type representing features of our demo event. Features are used in 'Features' view.
+    Display seen on demo installation has custom template implementation which can be found in {theme}/templates
+    directory - "node--features--teaser.tpl.php".
+    Resulting block has name "Features". And can be placed on site using Aviators Onepage administration.
+</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            textfield
+        </td>
+        <td>
+            Title of feature. This value is displayed trough "Features" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Body
+        </td>
+        <td>
+            textarea
+        </td>
+        <td>
+            Short description of feature. This value is displayed trough "Features" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Icon
+        </td>
+        <td>
+            Pictopro
+        </td>
+        <td>
+            Selector for Pictopro icon. Size of the icon can be changed using css (".field-type-pictopro {
+            font-size:30px; }"). This value is displayed trough "Features" view.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/features.png" class="thumbnail">
+            <img src="images/features.png">
+
+            <p style="text-align: center;">Features view</p>
+        </a>
+    </li>
+</ul>
+
+<h3>
+    Sessions
+</h3>
+
+<p>
+    Node type representing sessions. Sessions are used in 'Sessions' view, which are wrapped in Quicktabs 'Session'.
+    Display seen on demo installation has custom template implementation which can be found in {theme}/templates
+    directory - "node--session--full.tpl.php".
+    Resulting block has name "Session" (not "View: Session"). And can be placed on site using Aviators Onepage
+    administration.
+</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width: 20%">Name</th>
+        <th style="width: 15%">Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            Textfield
+        </td>
+
+        <td>
+            Basic title field. This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Presenter
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Represents presenters name (example: "Eduard Jones"). This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Presenter Title
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Represents presenters title (example: "Social Architects"). This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Session time
+        </td>
+        <td>
+            Date
+        </td>
+        <td>
+            Represents start/end time of session. This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            About presenter - title
+        </td>
+        <td>
+            Textfield
+        </td>
+        <td>
+            Represents title for 'about presenter' section. This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            About presenter - description
+        </td>
+        <td>
+            Textarea
+        </td>
+        <td>
+            Represents body for 'about presenter' section. This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Presenter picture
+        </td>
+        <td>
+            Image
+        </td>
+        <td>
+            Presenters picture. This value is displayed trough "Sessions" view.
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Place
+        </td>
+        <td>
+            Taxonomy term reference
+        </td>
+        <td>
+            This value represents place of the session. Places are defined in taxonomy vocabulary 'Place'.
+            This value is displayed trough Quicktabs block "Session".
+        </td>
+    </tr>
+    </tbody>
+</table>
+<ul class="thumbnails">
+    <li class="span4">
+        <a href="images/sessions.png" class="thumbnail">
+            <img src="images/sessions.png">
+            <p style="text-align: center;">Sessions view</p>
+        </a>
+    </li>
+</ul>
+</div>
+</section>
+
+<section id="slider-management">
+    <div class="page-header">
+        <h2>Sliders management</h2>
+    </div>
+
+    <p>Revolution slider is provided by 'aviators_revolution' module and it provides flexible solution for creating and
+        customizing sliders.
+        Revolution slider creates 3 basic elements:
+    </p>
+    <ul>
+        <li>Slider: Systems allows to create infinite number of sliders</li>
+        <li>Slide: To each slider you can assign number of slides, which are consisting mostly of background image and
+            components
+        </li>
+        <li>Component: Component represents independent element on a slide. It might be caption, image, clock...</li>
+    </ul>
+
+    <h3>Creating a slider</h3>
+
+    <p>
+        Go on <strong>admin/revolution/slider</strong> ( Link is visible in main administration menu ). You will be able
+        to see table of all sliders created in a system. New slider can be created by simply clicking on "Add Revolution
+        slider" action link.
+        Form with lots of configuration options will be displayed. All the form fields are well described and easy to
+        understand. For most use-cases even the default values will be sufficient.
+    </p>
+
+    <h3>Creating a slide</h3>
+
+    <p>
+        Once slider is created, it will appear in the overview table and we can view it. Clicking on 'View' link will
+        take us to the next screen. This screen will create preview of slider (If slides are available) and also
+        displays table of slides created for this slider. You can change order of slides easily, just by using drag&drop
+        handler in the overview table. To create a new slide, simply click on "Add new slide" action link. You will be
+        taken to the slide form, which consists just of few fields. Probably most important field is 'image' field. This
+        image will be used as a background of each slide. </p>
+
+    <h3>Managing components</h3>
+
+    <p>
+        Clicking on 'View' link in overview table brings us to the detail of slide. This detail consist of 3 sections:
+    </p>
+    <ul>
+        <li>
+            <strong>Add component action buttons</strong>
+            Aviators revolution provides 3 components type by default
+            <ul>
+                <li>Caption - simple text</li>
+                <li>Image - simple image</li>
+                <li>Timer - countdown timer</li>
+            </ul>
+            Each component type contains different field and different display. These component types can be created or
+            updated at <strong>/admin/structure/revolution</strong>. The principle is same as creating/updating Node
+            types.
+        </li>
+        <li>
+            <strong>Slide preview</strong>
+        </li>
+        The slide preview is created including all the components, so user can directly see what does this particular
+        slide look like in action. Positioning of components can be simply done by dragging components around.
+        <li>
+            <strong>Component overview</strong>
+            Table of all components.
+        </li>
+    </ul>
+
+    <h3>Video presentation</h3>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/RJKV1aY-fPo" frameborder="0" allowfullscreen></iframe>
+    <br />
+    <a href="http://www.youtube.com/watch?v=RJKV1aY-fPo">Direct link</a>
+</section>
+<section id="onepage-management">
+    <div class="page-header">
+        <h2>Onepage management</h2>
+    </div>
+
+    <p>
+        For handling onepage-like websites in Drupal we created Infine Onepage module.
+    </p>
+
+    <p>
+        We wanted to provide end-user with possibilities like:
+    </p>
+    <ul>
+        <li>
+            Quickly adding new "regions" and changing order of this regions.
+        </li>
+        <li>
+            Adding new rows, changing order of rows
+        </li>
+        <li>
+            Pushing content into rows, and structuring this content according to bootstrap framework.
+        </li>
+        <li>
+            Changing order of content in rows.
+        </li>
+        <li>
+            Create navigation using only anchor tags.
+        </li>
+    </ul>
+
+    <p>
+        Infine onepage basically allows to create onepage layouts according to <a
+            href="http://twitter.github.io/bootstrap/scaffolding.html"> Boostrap scaffolding </a> trough UI.
+    </p>
+
+    <p>
+        Multiple onepages can be created. However for this functionality is not fully developed and tested. For purposes
+        of infine is single onepage perfectly suitable. Administration to onepage can be found at
+        <strong>admin/structure/onepage</strong>.
+        Clicking on manage for specific onepage takes us to layout of onepage.
+        Layout contains Containers which are including Rows, which are including Blocks.
+    </p>
+
+    <p>
+        <strong>Containers</strong> can be sorted by simple Drag&Drop. This container is specified by bootstrap
+        framework container definition. If you want for container to appear as a choice for menu item you need to fill
+        in 'Wrapper ID' element when creating new container. Afterwards, when creating a new link in menu, new option
+        will appear in section ONEPAGE NAVIGATION. You will be able to select your container, and onepage navigation
+        link will be created.
+    </p>
+
+    <p>
+        <strong>Rows</strong> can be sorted by simple Drag&Drop. This row is specified by bootstrap framework row
+        definition.
+    </p>
+
+    <p>
+        <strong>Block</strong> can be sorted by simple Drag&Drop. This component is specified by bootstrap framework
+        spans definition.
+    </p>
+
+    <p>
+        To read more about Boostrap scaffolding, please follow this link: <a href="http://twitter.github.io/bootstrap/scaffolding.html"> Boostrap scaffolding </a>
+    </p>
+
+    <ul class="thumbnails">
+        <li class="span4">
+            <a href="images/onepage-container.png" class="thumbnail">
+                <img src="images/onepage-container.png">
+                <p style="text-align: center;">Sessions view</p>
+            </a>
+        </li>
+    </ul>
+
+    <h3>Video presentation</h3>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/b0_w2eM10ys" frameborder="0" allowfullscreen></iframe>
+    <br />
+    <a href="http://www.youtube.com/watch?v=b0_w2eM10ys">Direct link</a>
+
+</section>
+</div>
+<!-- /.content -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /.container-->
+<script type="text/javascript"
+        src="http://twitter.github.io/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.prettyPrint && prettyPrint()
+    });
+</script>
+</body>
+</html>

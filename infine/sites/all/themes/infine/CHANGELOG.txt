@@ -1,0 +1,7 @@
+11th September
+
+- Fixed notices and warnings from Onepage management page
+- Removed notice from Simplenews subscription form
+- Fixed google fonts loading error 404 error
+- ADMIN MENU module compatibility fix
+- Compatibility with PHP 5.2.x
